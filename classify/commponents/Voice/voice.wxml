@@ -1,0 +1,8 @@
+<view class="voice-wrapper">
+    <view class="voice-water"></view>
+    <view class="voice-water2"></view>
+    <image class="img" mode="aspectFit" src="../../source/images/voice.png"></image>
+    <view class="time" wx:if="{{time>0}}">
+        <text>{{time}}s</text>
+    </view>
+</view>

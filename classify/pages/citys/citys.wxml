@@ -1,0 +1,12 @@
+<scroll-view scrollY class="wrapper" enableBackToTop="{{true}}">
+  <view class="title">定位城市</view>
+  <view class="hint hz" bindtap='change1'>
+          杭州市
+        </view>
+        <view class="hint other" bindtap='change2'>
+          上海市
+        </view>
+        <view class="hint auto" bindtap='change3'>
+          自动定位
+        </view>
+</scroll-view>

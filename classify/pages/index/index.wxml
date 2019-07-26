@@ -1,0 +1,53 @@
+<movable-area class="container" style="{{iPhoneX?'padding-bottom:45px':''}}">
+    <view bindtap="goSearch" class="search-section">
+        <icon class="search-icon" size="20" type="search"></icon>
+        <text class="search-text">搜索垃圾分类</text>
+        <view catchtap="catchCamera" class="voice-wrapper" wx:if="{{showCamera}}">
+            <image class="voice-img" mode="aspectFit" src="../../source/images/camera.png"></image>
+        </view>
+        <view class="hint">
+           拍照识别
+        </view>
+        <view bindtouchend="stopVoice" bindtouchstart="touchVoice" catchtap="catchVoice" class="voice-wrapper"  wx:if="{{showVoice}}">
+            <image class="voice-img" mode="aspectFit" src="../../source/images/voice-black.png"></image>
+        </view>
+    </view>
+    <view class="content-section">
+        <view class="image-wrapper">
+            <view bindtap="bind1" class="icon-wapper iconbg1">
+                <image mode="aspectFit" src="{{'../../source/images/'+cityType+'/b.png'}}"></image>
+            </view>
+            <view bindtap="bind2" class="icon-wapper iconbg2">
+                <image mode="aspectFit" src="{{'../../source/images/'+cityType+'/c.png'}}"></image>
+            </view>
+        </view>
+        <view class="image-wrapper">
+            <view bindtap="bind3" class="icon-wapper iconbg3">
+                <image mode="aspectFit" src="{{'../../source/images/'+cityType+'/e.png'}}"></image>
+            </view>
+            <view bindtap="bind4" class="icon-wapper iconbg4">
+                <image mode="aspectFit" src="{{'../../source/images/'+cityType+'/d.png'}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="share-section">
+        <button bindtap="showShare" class="share btn-item">和朋友们一起分享吧</button>
+        <button  open-type='contact' class="collection btn-item">
+            <image class="collection-img" mode="aspectFit" src="../../source/images/service.png"></image>
+            <text>客服</text>
+        </button>
+        <button bindtap="openCollection" class="collection btn-item">
+            <image class="collection-img" mode="aspectFit" src="../../source/images/love.png"></image>
+            <text>收藏</text>
+        </button>
+    </view>
+    <view class="contact-img" bindtap="goProduct">
+       <image class="contact-img"  src="{{'../../source/images/'+cityType+'/advertising.png'}}" />
+    </view>
+    <share bindclose="closeShare" bindshowcollection="openCollection" wx:if="{{showShare}}"></share> 
+    <collectionModal bindclose="closeCollection" wx:if="{{showCollection}}"></collectionModal>
+    <voice time="{{time}}" wx:if="{{showVoice}}"></voice>
+       <movable-view bindchange="contactChange" class="contact" direction="all" inertia="{{true}}" x="{{contactX}}" y="{{contactY}}">
+           <view bindtap="goCitys">城市定位</view>
+       </movable-view>
+</movable-area>

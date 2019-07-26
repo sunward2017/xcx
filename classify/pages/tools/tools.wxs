@@ -1,0 +1,77 @@
+var getShType = (function (cats) {
+  var type;
+  switch (cats) {
+    case '1':
+      type = '湿垃圾';
+      break;
+    case '2':
+      type = '干垃圾';
+      break;
+    case '3':
+      type = '可回收物';
+      break;
+    case '4':
+      type = '有害垃圾';
+      break;
+    case '5':
+      type = '装修垃圾';
+      break;
+    default:
+      type = '非生活垃圾';
+  };
+  return (type)
+});
+var getHzType = (function (cats) {
+  var type;
+  switch (cats) {
+    case '1':
+      type = '易腐垃圾';
+      break;
+    case '2':
+      type = '其他垃圾';
+      break;
+    case '3':
+      type = '可回收物';
+      break;
+    case '4':
+      type = '有害垃圾';
+      break;
+    case '5':
+      type = '装修垃圾';
+      break;
+    default:
+      type = '非生活垃圾';
+  };
+  return (type)
+});
+var getLevel = (function (score) {
+  var type;
+  switch (score) {
+    case 100:
+      type = '嘴强王者';
+      break;
+    case 80:
+      type = '钻石大佬';
+      break;
+    case 60:
+      type = '黄金大佬';
+      break;
+    case 40:
+      type = '小小青铜';
+      break;
+    case 20:
+      type = '塑料无疑了';
+      break;
+    case 0:
+      type = '不如塑料';
+      break;
+    default:
+      type = '';
+  };
+  return (type)
+});
+module.exports = ({
+  getHzType: getHzType,
+  getShType: getShType,
+  getLevel: getLevel,
+});

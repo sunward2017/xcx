@@ -1,0 +1,47 @@
+<view class="container">
+    <view class="search-section">
+        <input autoFocus="{{true}}" bindconfirm="manualSearch" bindinput="bindSearchVal" class="search-input" confirmType="search" placeholder="搜索垃圾分类" value="{{searchVal}}"></input>
+        <icon bindtap="bindClearSearch" class="search-clear" hidden="{{!searchVal}}" size="20" type="clear"></icon>
+        <view catchtap="catchCamera" class="voice-wrapper" wx:if="{{showCamera}}">
+            <image class="voice-img" mode="aspectFit" src="../../source/images/camera.png"></image>
+        </view>
+        
+        <view bindtap="manualSearch" class="search-btn">搜索</view>
+    </view>
+    <view class="results-section">
+        <view style="height:100%;" wx:if="{{!searchVal}}">
+            <view wx:if="{{hotList.length}}">
+                <text class="hot-title">热门搜索</text>
+                <view class="hot-tag-wrapper">
+                    <view bindtap="bindHotType" class="hot-tag-cell" data-cats="{{item.cats}}" data-name="{{item.name}}" wx:for="{{hotList}}" wx:key="{{item.name}}">
+                        <image class="hot-icon" mode="aspectFit" src="../../source/images/fire.png" wx:if="{{index<3}}"></image>
+                        <text class="hot-tag">{{item.name}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="local-wrapper" wx:if="{{localHistoryList.length}}">
+                <text class="local-title">历史搜索</text>
+                <text bindtap="clearLocalHistory" class="local-clear">清空</text>
+                <view class="hot-tag-wrapper">
+                    <view bindtap="bindCellType" class="hot-tag-cell" data-cats="{{item.cats}}" data-name="{{item.name}}" wx:for="{{localHistoryList}}" wx:key="{{item.name}}">
+                        <text class="hot-tag">{{item.name}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <scroll-view scrollY style="height:100%;" wx:else>
+            <view bindtap="bindCellType" class="cell" data-cats="{{item.cats}}" data-name="{{item.name}}" wx:for="{{searchResults}}" wx:key="{{item.name}}">
+                <view class="cell-content">
+                    <text>{{item.name}}</text>
+                </view>
+                <text class="cell-type">{{tools[cityType](item.cats)}}</text>
+                <view class="cell-arrow"></view>
+            </view>
+            <view class="no-result-tip" wx:if="{{!isSearching&&searchResults.length===0&&searchVal}}">
+                <text>未查到匹配的字段，我们将尽快完善</text>
+            </view>
+        </scroll-view>
+    </view>
+    <voice time="{{time}}" wx:if="{{showVoice}}"></voice>
+</view>
+<wxs module="tools" src="../tools/tools.wxs" />

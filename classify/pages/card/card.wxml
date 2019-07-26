@@ -1,0 +1,51 @@
+<view class="container">
+    <scroll-view scrollY style="height:100%;width:100%">
+        <view class="wrapper" style="{{'background-color:'+bgColor}}">
+            <view class="cell">
+                <text class="title">{{item.name}}</text>
+            </view>
+            <view class="cell">
+                <text>属于</text>
+            </view>
+            <view bindtap="bind2" class="cell icon-wapper iconbg2">
+                <image class="type-img" mode="aspectFit" src="{{img}}" wx:if="{{img}}"></image>
+                <view class="cn-desc">
+                    <text>{{title}}</text>
+                </view>
+                <text class="en-desc">{{enTitle}}</text>
+            </view>
+            <view class="desc">
+                <view class="ask-wrapper" style="{{'background-color:'+bgColor}}">
+                    <text class="ask" wx:if="{{ask}}">{{ask}}</text>
+                </view>
+                <view class="ask-detail">
+                    <view class="ask-li" wx:for="{{askList}}" wx:key="{{item}}">
+                        <view class="ask-label" style="{{'background-color:'+bgColor}}"></view>
+                        <text class="ask-text">{{item}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="btn-wrapper">
+                <view class="item">
+                    <button class="btn" id="cardShareOne" openType="share">
+                        <image mode="aspectFit" src="../../source/images/shareone.png"></image>
+                    </button>
+                    <text>分享给好友</text>
+                </view>
+                <view class="item">
+                    <button bindtap="backHome" class="btn" id="cardResearch">
+                        <image mode="aspectFit" src="../../source/images/search.png"></image>
+                    </button>
+                    <text>继续搜索</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="collection" wx:if="{{showCollection}}">
+        <view class="collection-arrow"></view>
+        <view class="collection-content">
+            <text>添加到我的小程序</text>
+            <image bindtap="toggleCollection" class="collection-close" mode="aspectFit" src="../../source/images/close.png"></image>
+        </view>
+    </view>
+</view>

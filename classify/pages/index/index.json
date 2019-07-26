@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "share": "../../commponents/Share/share",
+    "collectionModal": "../../commponents/CollectionModal/collectionmodal",
+    "voice": "../../commponents/Voice/voice"
+  }
+}

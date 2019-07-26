@@ -1,0 +1,16 @@
+<view bindtap="close" class="container">
+    <view>
+        <image class="arrow" mode="aspectFit" src="../../source/images/arrow.png"></image>
+    </view>
+    <view class="dot-wrapper">
+        <text>1.点击右上角3个点</text>
+        <image class="dot" mode="aspectFit" src="../../source/images/dot.jpeg"></image>
+    </view>
+    <view class="text-wrapper">
+        <text>2.点击"添加到我的小程序"</text>
+    </view>
+    <view class="myapp-wrapper">
+        <text>3.以后就可以从"我的小程序"中打开垃圾分类小程序啦</text>
+        <!-- <image class="myapp" mode="aspectFit" src="../../source/images/myapp.jpeg"></image> -->
+    </view>
+</view>

@@ -1,0 +1,39 @@
+<view class="container">
+    <scroll-view scrollY class="wrapper" enableBackToTop="{{true}}">
+        <view class="type" style="{{'color:'+bgColor}}">
+            <view class="tip">
+                <view class="icon-wapper" style="{{'background-color:'+bgColor}}">
+                    <image class="img" mode="aspectFit" src="{{img}}"></image>
+                </view>
+                <view class="title-wrapper">
+                    <view>
+                        <text class="title">{{title}}</text>
+                    </view>
+                    <text class="sub">{{sub}}</text>
+                </view>
+            </view>
+            <view class="desc">
+                <view class="ask-wrapper" style="{{'background-color:'+bgColor}}">
+                    <text class="ask">{{ask}}</text>
+                </view>
+                <view class="ask-detail">
+                    <view class="ask-li" wx:for="{{askList}}" wx:key="{{item}}">
+                        <view class="ask-label" style="{{'background-color:'+bgColor}}"></view>
+                        <text class="ask-text">{{item}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="loading-tip" wx:if="{{!list.length}}">
+            <text>{{loadingTip}}</text>
+        </view>
+        <block wx:else>
+            <view bindtap="bindCellType" class="cell" data-cats="{{item.cats}}" data-name="{{item.name}}" style="{{index%2===0?'background-color: #eee':'background-color: #fff'}}" wx:for="{{list}}" wx:key="{{item.name}}">
+                <view class="cell-title">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="arrow" style="{{index%2===0?'border-color: #fff':'border-color: #eee'}}"></view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

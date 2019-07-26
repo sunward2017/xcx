@@ -1,0 +1,17 @@
+<view bindtap="close" class="container">
+    <view class="wrapper" style="{{'bottom:'+fixBottom+';padding-bottom:'+paddingBottom}}">
+        <button class="item btn-item" id="homeShareOne" openType="share">
+            <button class="btn">
+                <image mode="aspectFit" src="../../source/images/shareone.png"></image>
+            </button>
+            <text>分享给好友</text>
+        </button>
+        <button bindtap="shareAll" class="item btn-item" id="homeShareImg">
+            <button class="btn">
+                <image mode="aspectFit" src="../../source/images/shareall.png"></image>
+            </button>
+            <text>生成海报</text>
+        </button>
+    </view>
+    <canvas canvasId="shareCanvas" style="width:375px;height:667px;position:absolute;top:0;left:-1000px;"></canvas>
+</view>
